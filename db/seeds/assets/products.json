@@ -1,0 +1,25 @@
+[{
+        "name": "Samsung TV",
+        "description": "very colorful TV",
+        "price": "100000",
+        "quantity": 10
+    },
+    {
+        "name": "Mákdaráló",
+        "description": "jól darálja a mákot",
+        "price": "1000",
+        "quantity": 20
+    },
+    {
+        "name": "Rádió",
+        "description": "jóféle, fogja a jelet",
+        "price": "2000",
+        "quantity": 20
+    },
+    {
+        "name": "Teló",
+        "description": "olcsó",
+        "price": "20000",
+        "quantity": 40
+    }
+]

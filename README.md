@@ -27,4 +27,3 @@ After you're done, **rename** it to **.env**
 `npm start`
 
 Open http://localhost:3000
-# webshopproject

@@ -1,25 +1,25 @@
 [{
-        "name": "Samsung TV",
-        "description": "very colorful TV",
-        "price": "100000",
+        "name": "Q.Cells napelem",
+        "description": "25 év min. 83%-os teljesítmény garancia",
+        "price": "1",
         "quantity": 10
     },
     {
-        "name": "Mákdaráló",
-        "description": "jól darálja a mákot",
-        "price": "1000",
+        "name": "Avancis – PowerMax",
+        "description": "Az AVNACIS termékeket egyaránt jellemzik az innovatív technológiai megoldások, a rendkívül jó hatásfok és az esztétikus megjelenés.",
+        "price": "1",
         "quantity": 20
     },
     {
-        "name": "Rádió",
-        "description": "jóféle, fogja a jelet",
-        "price": "2000",
+        "name": "Fronius IG TL napelem inverter",
+        "description": "10 év garancia",
+        "price": "1",
         "quantity": 20
     },
     {
-        "name": "Teló",
-        "description": "olcsó",
-        "price": "20000",
+        "name": "FK Solinas 3 vákuumcsöves napkollektor",
+        "description": "Szilárd üveg szerkezet",
+        "price": "1",
         "quantity": 40
     }
 ]

@@ -9,27 +9,21 @@ router.get("/", async function(req, res, next) {
     res.render("users", { title: "Adatok", userData });
 });
 
-/*router.get('/users', async function(req, res, next) => {
-    const userMix = await knex("users").select();
-    res.render("users", {
-        name: "",
-        email: "",
-        address: ""
-    });
-}); */
-
-/*router.post("/", (req, res, next) => {
+router.post("/", async(req, res, next) => {
     // res.json(req.body).send();
     const userDTO = req.body;
-
     if (!isUserFormValid(userDTO)) {
-        res.render('error', {
-            message: "Hibás form kitöltés!"
+        res.render("error", {
+            message: "Hibás form kitöltés!",
         });
     } else {
+        await knex("users").insert({
+            name: userDTO.name,
+            email: userDTO.email,
+            address: userDTO.address,
+        });
         res.send(isUserFormValid(userDTO.name));
     }
-}
 });
 
 const isUserFormValid = (users) => {
@@ -37,12 +31,8 @@ const isUserFormValid = (users) => {
 };
 
 const isUserExist = async(name) => {
-    const count = await knex("users")
-        .count("name")
-        .where("name", name);
+    const count = await knex("users").count("name").where("name", name);
     return count > 0;
-
-}; */
-
+};
 
 module.exports = router;

@@ -2,9 +2,8 @@
 <p>Welcome to {{title}}</p>
 
 <body>
-    {{#each userData}}
     <div class="container"></div>
-    <form method="POST" action="/users">
+    <form id="users-form" method="POST" action="/users">
         <div class="form-group">
             <label for="name">{{name}}</label>
             <input type="text" class="form-control" id="name" name="name" placeholder="Example name">
@@ -22,9 +21,18 @@
                 maxlength="500"></textarea>
         </div>
         <div>
-            <input id="submit" type="submit" value="Ajánlatkérés" onclick="alert('Ajánlatkérését elküldte!')" />
+            <input id="submit" type="submit" value="Ajánlatkérés" onclick="document.getElementById("
+                users-form").submit()" />
+            {{!-- <input id="submit" type="submit" value="Ajánlatkérés" onclick="alert('Ajánlatkérését elküldte!')" /> --}}
         </div>
     </form>
     </div>
+    {{#each userData}}
+    {{name}} - {{email}} - {{address}}
     {{/each}}
+    <script>
+        function getProductId() {
+            return String(window.location.href).split("product=")[1]
+        }
+    </script>
 </body>

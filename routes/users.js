@@ -22,9 +22,14 @@ router.post("/", async(req, res, next) => {
             email: userDTO.email,
             address: userDTO.address,
         });
-        res.send(isUserFormValid(userDTO.name));
+        let userData = await knex("users").select();
+        console.log(userData);
+        res.render("users", { title: "Adatok", userData, "message": "koszonjuk hogy irt nekunk" });
     }
 });
+
+
+
 
 const isUserFormValid = (users) => {
     return users.name && users.email && users.address;
@@ -35,21 +40,7 @@ const isUserExist = async(name) => {
     return count > 0;
 };
 
-router.post("/", async(req, res, next) => {
-    // res.json(req.body).send();
-    const orderproductsDTO = req.body;
-    if (!isUserFormValid(userDTO)) {
-        res.render("error", {
-            message: "Hibás form kitöltés!",
-        });
-    } else {
-        await knex("order_products").insert({
-            textarea: orderproductsDTO.textarea
 
-        });
-        res.send(isUserFormValid(orderproductDTO.textarea));
-    }
-});
 
 
 module.exports = router;

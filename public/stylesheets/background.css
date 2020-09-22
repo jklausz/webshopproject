@@ -49,3 +49,17 @@ nav ul li a {
 nav ul li a:hover {
     color: var(--light);
 }
+
+.copyright-section {
+    display: flex;
+    flex-wrap: nowrap;
+    background-color: rgb(125, 170, 214);
+    justify-content: center;
+}
+
+.copyright-section>div {
+    text-align: center;
+    line-height: 15px;
+    font-size: 14px;
+    color: white;
+}

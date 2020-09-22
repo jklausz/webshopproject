@@ -1,38 +1,50 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
-
 <body>
-    <div class="container"></div>
-    <form id="users-form" method="POST" action="/users">
-        <div class="form-group">
-            <label for="name">{{name}}</label>
-            <input type="text" class="form-control" id="name" name="name" placeholder="Example name">
+    <header id="users">
+        <nav>
+            <ul>
+                <li><a href="./">HOME</a></li>
+                <li><a href="./products">PRODUCTS</a></li>
+                <li><a href="#users">USERS</a></li>
+            </ul>
+        </nav>
+        <br>
+        <br>
+        <br>
+        <br>
+        <h1>{{title}}</h1>
+        <p>Welcome to {{title}}</p>
+
+        <div class="container"></div>
+        <form id="users-form" method="POST" action="/users">
+            <div class="form-group">
+                <label for="name">{{name}}</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Example name">
+            </div>
+            <div class="form-group">
+                <label for="email">{{email}}</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com">
+            </div>
+            <div class="form-group">
+                <label for="address">{{address}}</label>
+                <input type="text" class="form-control" id="address" name="address" placeholder="Example address">
+            </div>
+            <div>
+                <textarea class="form-control" id="description" name="description" cols="30" rows="10"
+                    maxlength="500"></textarea>
+            </div>
+            <div>
+                <input id="submit" type="submit" value="Ajánlatkérés" onclick="document.getElementById("
+                    users-form").submit()" />
+                {{!-- <input id="submit" type="submit" value="Ajánlatkérés" onclick="alert('Ajánlatkérését elküldte!')" /> --}}
+            </div>
+        </form>
         </div>
-        <div class="form-group">
-            <label for="email">{{email}}</label>
-            <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com">
-        </div>
-        <div class="form-group">
-            <label for="address">{{address}}</label>
-            <input type="text" class="form-control" id="address" name="address" placeholder="Example address">
-        </div>
-        <div>
-            <textarea class="form-control" id="description" name="description" cols="30" rows="10"
-                maxlength="500"></textarea>
-        </div>
-        <div>
-            <input id="submit" type="submit" value="Ajánlatkérés" onclick="document.getElementById("
-                users-form").submit()" />
-            {{!-- <input id="submit" type="submit" value="Ajánlatkérés" onclick="alert('Ajánlatkérését elküldte!')" /> --}}
-        </div>
-    </form>
-    </div>
-    {{#each userData}}
-    {{name}} - {{email}} - {{address}}
-    {{/each}}
-    <script>
-        function getProductId() {
-            return String(window.location.href).split("product=")[1]
-        }
-    </script>
+        {{#each userData}}
+        {{name}} - {{email}} - {{address}}
+        {{/each}}
+        <script>
+            function getProductId() {
+                return String(window.location.href).split("product=")[1]
+            }
+        </script>
 </body>

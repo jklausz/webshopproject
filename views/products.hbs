@@ -1,26 +1,37 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
-
 <body>
-    {{#each x}}
+    <header id="products">
+        <nav>
+            <ul>
+                <li><a href="./">HOME</a></li>
+                <li><a href="#products">PRODUCTS</a></li>
+                <li><a href="./users">USERS</a></li>
+            </ul>
+        </nav>
+        <br>
+        <br>
+        <br>
+        <br>
+        <h1>{{title}}</h1>
+        <p>Welcome to {{title}}</p>
+        {{#each x}}
 
-    <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">{{name}}</h5>
-            <p class="card-text">{{description}}</p>
+        <div class="card" style="width: 18rem;">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{name}}</h5>
+                <p class="card-text">{{description}}</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">{{price}}</li>
+                <li class="list-group-item">{{quantity}}</li>
+            </ul>
+            <div><img src="{{image_src}}" alt="html-icon"></div>
+            <div class="card-body">
+                {{!-- <a href="./users" class="card-link">Buy</a> --}}
+                <a href="./users?product={{id}}" class="card-link">Buy</a>
+            </div>
         </div>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">{{price}}</li>
-            <li class="list-group-item">{{quantity}}</li>
-        </ul>
-        <div><img src="{{image_src}}" alt="html-icon"></div>
-        <div class="card-body">
-            {{!-- <a href="./users" class="card-link">Buy</a> --}}
-            <a href="./users?product={{id}}" class="card-link">Buy</a>
-        </div>
-    </div>
 
 
-    {{/each}}
+        {{/each}}
 </body>

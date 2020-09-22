@@ -35,4 +35,21 @@ const isUserExist = async(name) => {
     return count > 0;
 };
 
+router.post("/", async(req, res, next) => {
+    // res.json(req.body).send();
+    const orderproductsDTO = req.body;
+    if (!isUserFormValid(userDTO)) {
+        res.render("error", {
+            message: "Hibás form kitöltés!",
+        });
+    } else {
+        await knex("order_products").insert({
+            textarea: orderproductsDTO.textarea
+
+        });
+        res.send(isUserFormValid(orderproductDTO.textarea));
+    }
+});
+
+
 module.exports = router;

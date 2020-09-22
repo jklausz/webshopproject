@@ -2,24 +2,28 @@
         "name": "Q.Cells napelem",
         "description": "25 év min. 83%-os teljesítmény garancia",
         "price": "1",
-        "quantity": 10
+        "quantity": 10,
+        "img_src": "qcells_napelem.png"
     },
     {
         "name": "Avancis – PowerMax",
         "description": "Az AVNACIS termékeket egyaránt jellemzik az innovatív technológiai megoldások, a rendkívül jó hatásfok és az esztétikus megjelenés.",
         "price": "1",
-        "quantity": 20
+        "quantity": 20,
+        "img_src": "avancis.jpg"
     },
     {
         "name": "Fronius IG TL napelem inverter",
         "description": "10 év garancia",
         "price": "1",
-        "quantity": 20
+        "quantity": 20,
+        "img_src": "fronius_inverter.jpg"
     },
     {
         "name": "FK Solinas 3 vákuumcsöves napkollektor",
         "description": "Szilárd üveg szerkezet",
         "price": "1",
-        "quantity": 40
+        "quantity": 40,
+        "img_src": "fk_solinas_vakummcsoves.jpg"
     }
 ]

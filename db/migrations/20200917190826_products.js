@@ -5,6 +5,7 @@ exports.up = function(knex) {
         table.text("description").notNullable();
         table.decimal("price").notNullable();
         table.integer("quantity").notNullable();
+        table.string('image_src').notNull();
     });
 };
 

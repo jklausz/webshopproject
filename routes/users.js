@@ -24,12 +24,13 @@ router.post("/", async(req, res, next) => {
         });
         let userData = await knex("users").select();
         console.log(userData);
-        res.render("users", { title: "Adatok", userData, "message": "koszonjuk hogy irt nekunk" });
+        res.render("users", {
+            title: "Adatok",
+            userData,
+            message: "Köszönjük,hogy irt nekünk!",
+        });
     }
 });
-
-
-
 
 const isUserFormValid = (users) => {
     return users.name && users.email && users.address;
@@ -39,8 +40,5 @@ const isUserExist = async(name) => {
     const count = await knex("users").count("name").where("name", name);
     return count > 0;
 };
-
-
-
 
 module.exports = router;

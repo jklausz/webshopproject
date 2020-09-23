@@ -30,7 +30,9 @@
             </div>
             <div class="form-group">
                 <label for="email">{{email}}</label>
-                <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com">
+                <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com"
+                    onkeyup="validateEmail()" required>
+                <p id="emailmessage"></p>
             </div>
             <div class="form-group">
                 <label for="address">{{address}}</label>
@@ -46,6 +48,19 @@
                 {{!-- <input id="submit" type="submit" value="Ajánlatkérés" onclick="alert('Ajánlatkérését elküldte!')" /> --}}
             </div>
         </form>
+        <script>
+            function validateEmail() {
+                var x = document.getElementById("email");
+                if (!x.value.includes("@") || !x.value.includes(".")) {
+                    document.getElementById("emailmessage").innerHTML =
+                        "The email not contains @ and . characters!";
+                    document.getElementById("email").setAttribute("class", "borderred");
+                } else {
+                    document.getElementById("emailmessage").innerHTML = "";
+                    document.getElementById("email").setAttribute("class", "");
+                }
+            }
+        </script>
         </div>
         {{!-- {{#each userData}}
         {{name}} - {{email}} - {{address}}

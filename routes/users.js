@@ -7,7 +7,7 @@ router.get("/", async function(req, res, next) {
     const productId = req.query.product;
     let productsData;
     if (productId) {
-        productsData = await knex('products').select().where({ id: productId }); // kérdezzük le azt az 1 productot id alapján
+        productsData = await knex("products").select().where({ id: productId }); // kérdezzük le azt az 1 productot id alapján
     } else {
         productsData = await knex("products").select();
     }
@@ -19,34 +19,51 @@ router.get("/", async function(req, res, next) {
 
 router.post("/", async(req, res, next) => {
     // res.json(req.body).send();
-    console.log('called/users');
+    console.log("called/users");
     const userDTO = req.body;
-    const orderproductsDTO = req.body;
+    const orderProductsDTO = req.body;
     if (!isUserFormValid(userDTO)) {
         res.render("error", {
             message: "Hibás form kitöltés!",
         });
     } else {
-
+        console.log(req.body);
         // 1. lépés: user lementése
-        const userId = await knex("users").insert({
-            name: userDTO.name,
-            email: userDTO.email,
-            address: userDTO.address,
-        }).returning('id');
 
+        const userId = await knex("users").insert({
+                name: userDTO.name,
+                email: userDTO.email,
+                address: userDTO.address,
+            },
+            "id"
+        );
+
+        console.log(
+            userId.toString().replace("[", "").replace("]", "").replace(" ", "")
+        );
+
+        /*  const userId = await knex("users").insert({
+                            name: userDTO.name,
+                            email: userDTO.email,
+                            address: userDTO.address,
+                        });
+                        //.returning("id");
+                        knex.select("LAST_INSERT_ID()"); */
 
         // 2.lépés: order lementése
         // előbb mentsük le az orderbe a rendelést
         // userId
         // TODO: productId megszerzése (<select value="{{id}}")>...)
-
+        console.log(req.body);
         // knex('orders').insert({ userId, productId})
         // .returning('id') <-- order tábla id-ját adjuk vissza
 
         // ha csak 1 termék tartozhat 1 rendeléshez, akkor nem kell joining table-be lementeni
-        await knex("order_products").insert({
-            content: orderproductsDTO.content
+
+        await knex("orderstable").insert({
+            user_id: userId,
+            product_id: orderProductsDTO.products,
+            content: orderProductsDTO.description,
         });
 
         let userData = await knex("users").select();

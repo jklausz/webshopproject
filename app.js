@@ -21,7 +21,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use(express.static('img'));
+app.use(express.static("img"));
 
 app.use("/", indexRouter);
 app.use("/test", testRouter);

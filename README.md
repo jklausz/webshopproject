@@ -19,7 +19,8 @@ You have to create a database to serve your application:
 
 `docker exec -it mysql-db mysql -p -e "CREATE DATABASE <database name>"`
 
-knex migrate:latest 
+knex migrate:latest
+ 
 knex seed:run
 
 ## Configuration

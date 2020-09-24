@@ -19,6 +19,9 @@ You have to create a database to serve your application:
 
 `docker exec -it mysql-db mysql -p -e "CREATE DATABASE <database name>"`
 
+knex migrate:latest 
+knex seed:run
+
 ## Configuration
 You can find a .env template file that you have to fill out to fit your needs.
 After you're done, **rename** it to **.env**

@@ -5,6 +5,7 @@ exports.up = function(knex) {
         table.timestamp("created_at").defaultTo(knex.fn.now());
         table.integer("user_id").unsigned().references("id").inTable("users");
         table.integer("product_id").unsigned().references("id").inTable("products");
+        table.string("content").notNullable();
         // table.foreign("product_id").references("products.id");
         // table.integer("product_id").unsigned();
         // table.foreign("product_id").references("products.id");

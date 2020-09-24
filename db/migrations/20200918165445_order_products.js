@@ -5,7 +5,7 @@ exports.up = function(knex) {
         table.foreign("order_id").references("orderstable.id");
         table.integer("product_id").unsigned();
         table.foreign("product_id").references("products.id");
-        table.string("content").notNullable();
+        // table.string("content").notNullable();
     });
 };
 

@@ -38,15 +38,12 @@
                 <label for="address">{{address}}</label>
                 <input type="text" class="form-control" id="address" name="address" placeholder="Example address">
             </div>
-            <div>
-                <label for="product">Choose a product:</label>
-
-                <select name="cars" id="cars">
-                    <option value="">--Please choose an option--</option>
-                    <option value="qcellsnapelem">Q.Cells napelem</option>
-                    <option value="avancispowermax">Avancis-PowerMax</option>
-                    <option value="froniusigtl">Fronius IGTL napelem inverter</option>
-                    <option value="fksolinas">FK Solinas 3 vákumcsöves napkollektor</option>
+            <div class="form-group">
+                <label for="products">Termékek</label>
+                <select id="products" class="form-control" name="products">
+                    {{#each productsData}}
+                    <option value="{{id}}">{{ name }}</option>
+                    {{/each}}
                 </select>
             </div>
 
